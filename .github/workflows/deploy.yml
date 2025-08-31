@@ -3,7 +3,7 @@ name: Deploy Webworker
 on:
   push:
     branches:
-      - main   # change if your repo uses "master" or another branch
+      - main   # change to master if your repo’s default branch is master
 
 jobs:
   deploy:
