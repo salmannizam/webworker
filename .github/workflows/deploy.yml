@@ -1,0 +1,29 @@
+name: Deploy Webworker
+
+on:
+  push:
+    branches:
+      - main   # change if your repo uses "master" or another branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to Droplet via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.WEBWORKER_DROPLET_IP }}
+          username: ${{ secrets.WEBWORKER_DROPLET_USER }}
+          key: ${{ secrets.WEBWORKER_SSH_KEY }}
+          script: |
+            cd /var/www/webworker || exit 1
+            git reset --hard
+            git pull origin main
+            cp /var/envs/webworker.env /var/www/webworker/.env
+            chown www-data:www-data /var/www/webworker/.env
+            chmod 600 /var/www/webworker/.env
+            sudo systemctl reload php8.3-fpm
