@@ -1,0 +1,11 @@
+:root {
+    --bs-primary: #4f46e5;   /* Indigo Blue (Main Brand) */
+    --bs-secondary: #06b6d4; /* Cyan Glow (Techy Accent) */
+    --bs-success: #22c55e;   /* Green (Growth & Success) */
+    --bs-info: #0ea5e9;      /* Sky Blue (Friendly & Informative) */
+    --bs-warning: #f59e0b;   /* Orange (Attention/CTA) */
+    --bs-danger: #ef4444;    /* Red (Errors/Alerts) */
+    --bs-dark: #0f172a;      /* Deep Navy (Background) */
+    --bs-light: #f8fafc;     /* Soft Light Gray (Text BG) */
+  }
+  
