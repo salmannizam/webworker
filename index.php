@@ -2,6 +2,7 @@
 $pageTitle = "Home - WebWorker"; 
 include 'components/header.php'; 
 ?>
+<?php include 'components/hero.php'; ?>
 
 <main class="container py-5">
   <h2 class="mb-4">Main Content</h2>

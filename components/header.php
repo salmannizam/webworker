@@ -21,11 +21,32 @@ if (!isset($pageTitle)) {
   <link 
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" 
     rel="stylesheet">
+
+  <style>
+    /* Gradient navbar */
+    .navbar-custom {
+      background: linear-gradient(90deg, #0d6efd, #6610f2);
+    }
+    .navbar-custom .nav-link {
+      color: #fff !important;
+      transition: 0.3s;
+    }
+    .navbar-custom .nav-link:hover {
+      color: #ffc107 !important;
+    }
+    .navbar-brand {
+      color: #fff !important;
+    }
+    /* Hero gradient */
+    .hero {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef, #dee2e6);
+    }
+  </style>
 </head>
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom shadow sticky-top">
   <div class="container">
     <a class="navbar-brand fw-bold fs-4" href="#">
       <i class="bi bi-code-slash me-2"></i> WebWorker
@@ -48,20 +69,8 @@ if (!isset($pageTitle)) {
         <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
       </ul>
-      <a href="#" class="btn btn-primary ms-lg-3">Get Started</a>
+      <a href="#" class="btn btn-warning text-dark fw-semibold ms-lg-3 shadow-sm">Get Started</a>
     </div>
   </div>
 </nav>
 
-<!-- Hero Section -->
-<header class="bg-light py-5 text-center">
-  <div class="container">
-    <h1 class="display-4 fw-bold">Welcome to WebWorker</h1>
-    <p class="lead text-muted mb-4">
-      We build modern, scalable, and beautiful web applications with PHP & Bootstrap.
-    </p>
-    <a href="#services" class="btn btn-primary btn-lg">Explore Services</a>
-    <a href="#contact" class="btn btn-outline-dark btn-lg ms-2">Contact Us</a>
-  </div>
-</header>
-<!-- End of header.php -->
