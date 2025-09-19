@@ -1,342 +1,406 @@
-<!-- Hero Section -->
- <style>
-     :root {
-            --primary: #3b82f6;
-            --secondary: #06b6d4;
-            --accent: #9333ea;
-            --dark: #020617;
-            --darker: #0f172a;
+<style>
+    :root {
+        --primary: #6366f1;
+        /* Indigo */
+        --secondary: #06b6d4;
+        /* Cyan */
+        --dark: #0f172a;
+        /* Navy */
+        --green-dark: #064e3b;
+        /* Dark green */
+        --card-bg: rgba(255, 255, 255, 0.05);
+        --card-border: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        padding: 6rem 2rem 4rem;
+        background: linear-gradient(135deg, var(--primary), var(--green-dark));
+        overflow: hidden;
+    }
+
+    .hero-section::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.15);
+        pointer-events: none;
+    }
+
+    /* Hero Content */
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+        font-weight: 900;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .text-gradient {
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hero-content p {
+        font-size: 1.25rem;
+        margin: 1.5rem 0 2.5rem;
+        color: #e0e7ff;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Buttons */
+    .d-flex {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    .btn-primary {
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border: none;
+        padding: 0.8rem 2.2rem;
+        font-size: 1.15rem;
+        font-weight: 700;
+        border-radius: 10px;
+        transition: all 0.4s ease;
+        box-shadow: 0 6px 15px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 10px 25px rgba(99, 102, 241, 0.5);
+    }
+
+    .btn-outline-light {
+        border: 2px solid rgba(255, 255, 255, 0.7);
+        color: white;
+        padding: 0.8rem 2.2rem;
+        font-size: 1.15rem;
+        font-weight: 700;
+        border-radius: 10px;
+        transition: all 0.4s ease;
+    }
+
+    .btn-outline-light:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-3px) scale(1.05);
+    }
+
+    /* Enhanced Tech Cards */
+    .tech-section-title {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 2.5rem;
+        color: rgba(255, 255, 255, 0.9);
+        position: relative;
+        display: inline-block;
+        font-weight: 600;
+        padding-bottom: 0.5rem;
+    }
+
+    .tech-section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 3px;
+    }
+
+    .tech-icons-container {
+        margin-top: 2rem;
+    }
+
+    .tech-icons {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        gap: 1.5rem;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .tech-icon {
+        padding: 1.2rem 0.8rem;
+        background: var(--card-bg);
+        border-radius: 12px;
+        transition: all 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        border: 1px solid var(--card-border);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        height: 100%;
+    }
+
+    .tech-icon::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+    }
+
+    .tech-icon:hover::before {
+        opacity: 1;
+    }
+
+    .tech-icon img {
+        width: 50px;
+        height: 50px;
+        transition: all 0.4s ease;
+        object-fit: contain;
+        margin-bottom: 0.8rem;
+    }
+
+    .tech-icon:hover img {
+        transform: scale(1.15);
+    }
+
+    .tech-name {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        line-height: 1.3;
+    }
+
+    .tech-icon:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Pulse animation for cards */
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
         }
-        
-        body {
-            overflow-x: hidden;
-            font-family: 'Inter', sans-serif;
+
+        70% {
+            box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
         }
-        
+
+        100% {
+            box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+        }
+    }
+
+    .tech-icon:nth-child(4n+1) {
+        animation: pulse 4s infinite 1s;
+    }
+
+    .tech-icon:nth-child(4n+2) {
+        animation: pulse 4s infinite 2s;
+    }
+
+    .tech-icon:nth-child(4n+3) {
+        animation: pulse 4s infinite 3s;
+    }
+
+    .tech-icon:nth-child(4n+4) {
+        animation: pulse 4s infinite 4s;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .hero-content h1 {
+            font-size: 3rem;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+        }
+
+        .tech-icons {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .tech-icon img {
+            width: 45px;
+            height: 45px;
+        }
+    }
+
+    @media (max-width: 768px) {
         .hero-section {
-            min-height: 100vh;
-            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
-            position: relative;
-            overflow: hidden;
-            padding: 4rem 0;
-            display: flex;
-            align-items: center;
+            padding: 5rem 1.5rem 3rem;
         }
-        
-        /* Animated gradient background */
-        .gradient-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #0f172a, #1e293b, #334155, #0f172a);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            z-index: 0;
-            opacity: 0.8;
+
+        .hero-content h1 {
+            font-size: 2.5rem;
         }
-        
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+
+        .hero-content p {
+            font-size: 1.05rem;
         }
-        
-        /* Particle effect */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
+
+        .d-flex {
+            flex-direction: column;
+            gap: 1rem;
         }
-        
-        /* Content styling */
-        .hero-content {
-            position: relative;
-            z-index: 2;
+
+        .tech-icons {
+            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+            gap: 1rem;
         }
-        
-        /* Gradient Text */
-        .text-gradient {
-            background: linear-gradient(90deg, var(--secondary), var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: gradientShift 3s ease infinite;
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        /* Tech logos styling */
+
         .tech-icon {
-            width: 60px;
-            height: 60px;
-            animation: float 6s ease-in-out infinite;
-            filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border-radius: 16px;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0.5rem;
         }
-        
-        .tech-icon:hover {
-            transform: scale(1.15) translateY(-5px) rotate(5deg);
-            filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.5));
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(6, 182, 212, 0.2));
-            border-color: rgba(59, 130, 246, 0.3);
-        }
-        
-        /* Staggered animation delays */
-        .tech-icon:nth-child(1) { animation-delay: 0s; }
-        .tech-icon:nth-child(2) { animation-delay: 0.5s; }
-        .tech-icon:nth-child(3) { animation-delay: 1s; }
-        .tech-icon:nth-child(4) { animation-delay: 1.5s; }
-        .tech-icon:nth-child(5) { animation-delay: 2s; }
-        .tech-icon:nth-child(6) { animation-delay: 2.5s; }
-        .tech-icon:nth-child(7) { animation-delay: 3s; }
-        .tech-icon:nth-child(8) { animation-delay: 3.5s; }
-        .tech-icon:nth-child(9) { animation-delay: 4s; }
-        .tech-icon:nth-child(10) { animation-delay: 4.5s; }
-        .tech-icon:nth-child(11) { animation-delay: 5s; }
-        .tech-icon:nth-child(12) { animation-delay: 5.5s; }
-        .tech-icon:nth-child(13) { animation-delay: 6s; }
-        .tech-icon:nth-child(14) { animation-delay: 6.5s; }
-        .tech-icon:nth-child(15) { animation-delay: 7s; }
-        .tech-icon:nth-child(16) { animation-delay: 7.5s; }
-        .tech-icon:nth-child(17) { animation-delay: 8s; }
-        .tech-icon:nth-child(18) { animation-delay: 8.5s; }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        /* Invert for dark logos */
-        .invert {
-            filter: invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
-        }
-        
-        /* Button styling */
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border: none;
-            border-radius: 50px;
-            padding: 12px 30px;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.6);
-            background: linear-gradient(135deg, var(--accent), var(--primary));
-        }
-        
-        .btn-outline-light {
-            border-radius: 50px;
-            padding: 12px 30px;
-            font-weight: 600;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .btn-outline-light:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Lead text styling */
-        .lead {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            line-height: 1.6;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .tech-icon {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .display-3 {
-                font-size: 2.5rem;
-            }
-            
-            .lead {
-                font-size: 1.1rem;
-            }
-            
-            .btn-lg {
-                padding: 10px 20px;
-                font-size: 1rem;
-            }
-        }
- </style>
-  <!-- Hero Section -->
-  <header class="hero-section text-white">
-        <!-- Animated gradient background -->
-        <div class="gradient-bg"></div>
-        
-        <!-- Particle effect -->
-        <div id="particles-js"></div>
-        
-        <div class="container text-center hero-content">
-            <h1 class="display-3 fw-bold mb-4 text-gradient">
-                Building Next-Gen Web Applications
-            </h1>
-            <p class="lead mb-5 opacity-75">
-                Experts in <span class="fw-semibold text-primary">React</span>, <span class="fw-semibold text-primary">Next.js</span>, 
-                <span class="fw-semibold text-primary">Node.js</span>, <span class="fw-semibold text-primary">NestJS</span>, 
-                <span class="fw-semibold text-primary">MongoDB</span> & <span class="fw-semibold text-primary">SQL</span>.
-            </p>
-            <div class="d-flex justify-content-center gap-3 flex-wrap mb-5">
-                <a href="#services" class="btn btn-primary btn-lg shadow">
-                    <i class="fas fa-rocket me-2"></i>Get Started
-                </a>
-                <a href="#contact" class="btn btn-outline-light btn-lg shadow">
-                    <i class="fas fa-comment me-2"></i>Contact Us
-                </a>
-            </div>
 
-            <div class="tech-logos mt-5 d-flex justify-content-center flex-wrap gap-4">
-                <!-- Frontend -->
-                <img src="https://cdn.worldvectorlogo.com/logos/react-2.svg" class="tech-icon" alt="React" />
-                <img src="https://cdn.worldvectorlogo.com/logos/next-js.svg" class="tech-icon invert" alt="Next.js" />
-                <img src="https://cdn.worldvectorlogo.com/logos/vue-js-1.svg" class="tech-icon" alt="Vue.js" />
-                <img src="https://cdn.worldvectorlogo.com/logos/angular-icon-1.svg" class="tech-icon" alt="Angular" />
-                
-                <!-- Backend -->
-                <img src="https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" class="tech-icon" alt="Node.js" />
-                <img src="https://cdn.worldvectorlogo.com/logos/nestjs.svg" class="tech-icon" alt="NestJS" />
-                <img src="https://cdn.worldvectorlogo.com/logos/express-109.svg" class="tech-icon invert" alt="Express.js" />
-                <img src="https://cdn.worldvectorlogo.com/logos/php-1.svg" class="tech-icon" alt="PHP" />
-                <img src="https://cdn.worldvectorlogo.com/logos/laravel-2.svg" class="tech-icon" alt="Laravel" />
+        .tech-icon img {
+            width: 40px;
+            height: 40px;
+        }
 
-                <!-- Databases -->
-                <img src="https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" class="tech-icon" alt="MongoDB" />
-                <img src="https://upload.wikimedia.org/wikipedia/en/d/dd/MySQL_logo.svg" class="tech-icon invert" alt="MySQL" />
-                <img src="https://cdn.worldvectorlogo.com/logos/postgresql.svg" class="tech-icon" alt="PostgreSQL" />
-                <img src="https://cdn.worldvectorlogo.com/logos/redis.svg" class="tech-icon" alt="Redis" />
+        .tech-name {
+            font-size: 0.75rem;
+        }
 
-                <!-- CMS / Tools -->
-                <img src="https://cdn.worldvectorlogo.com/logos/wordpress-icon.svg" class="tech-icon" alt="WordPress" />
-                <img src="https://cdn.worldvectorlogo.com/logos/shopify.svg" class="tech-icon" alt="Shopify" />
-                <img src="https://cdn.worldvectorlogo.com/logos/docker.svg" class="tech-icon" alt="Docker" />
-                <img src="https://cdn.worldvectorlogo.com/logos/kubernetes.svg" class="tech-icon invert" alt="Kubernetes" />
-                <img src="https://cdn.worldvectorlogo.com/logos/aws-2.svg" class="tech-icon" alt="AWS" />
-                <img src="https://cdn.worldvectorlogo.com/logos/git-icon.svg" class="tech-icon invert" alt="Git" />
+        .tech-section-title {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-content h1 {
+            font-size: 2.2rem;
+        }
+
+        .tech-icons {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+</style>
+
+<section class="hero-section">
+    <div class="hero-content">
+        <h1>We Build <span class="text-gradient">Scalable Web Applications</span></h1>
+        <p>Empowering businesses with <strong>modern frameworks, cloud solutions, and databases</strong> to deliver
+            high-performance digital products.</p>
+
+        <div class="d-flex">
+            <a href="#get-started" class="btn btn-primary">🚀 Get Started</a>
+            <a href="#contact" class="btn btn-outline-light">💬 Contact Us</a>
+        </div>
+
+        <!-- Enhanced Tech Icons -->
+        <div class="tech-icons-container">
+            <div class="tech-section-title">Technologies We Work With</div>
+            <div class="tech-icons">
+                <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+                    <div class="tech-name">React</div>
+                </div>
+                <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+                        alt="Next.js">
+                    <div class="tech-name">Next.js</div>
+                </div>
+                <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue.js">
+                    <div class="tech-name">Vue.js</div>
+                </div>
+                <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+                        alt="Angular">
+                    <div class="tech-name">Angular</div>
+                </div>
+                <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                        alt="Node.js">
+                    <div class="tech-name">Node.js</div>
+                </div>
+                <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original-wordmark.svg"
+                        alt="NestJS">
+                    <div class="tech-name">NestJS</div>
+                </div>
+                <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
+                    <div class="tech-name">PHP</div>
+                </div>
+                <div class="tech-icon">
+                    <img src="https://laravel.com/img/logotype.min.svg" alt="Laravel">
+                    <div class="tech-name">Laravel</div>
+                </div>
+                <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                        alt="MongoDB">
+                    <div class="tech-name">MongoDB</div>
+                </div>
+                <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+                    <div class="tech-name">MySQL</div>
+                </div>
+                <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                        alt="PostgreSQL">
+                    <div class="tech-name">PostgreSQL</div>
+                </div>
+                <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis">
+                    <div class="tech-name">Redis</div>
+                </div>
+                <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                        alt="Docker">
+                    <div class="tech-name">Docker</div>
+                </div>
+                <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg"
+                        alt="Kubernetes">
+                    <div class="tech-name">Kubernetes</div>
+                </div>
+                <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg"
+                        alt="AWS">
+                    <div class="tech-name">AWS</div>
+                </div>
+                <div class="tech-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                    <div class="tech-name">Git</div>
+                </div>
             </div>
         </div>
-    </header>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        // Initialize particles.js
-        document.addEventListener('DOMContentLoaded', function() {
-            particlesJS('particles-js', {
-                "particles": {
-                    "number": {
-                        "value": 80,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": "#3b82f6"
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        }
-                    },
-                    "opacity": {
-                        "value": 0.5,
-                        "random": true,
-                        "anim": {
-                            "enable": true,
-                            "speed": 1,
-                            "opacity_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": true,
-                        "anim": {
-                            "enable": true,
-                            "speed": 2,
-                            "size_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": "#3b82f6",
-                        "opacity": 0.4,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 2,
-                        "direction": "none",
-                        "random": true,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false,
-                        "attract": {
-                            "enable": false,
-                            "rotateX": 600,
-                            "rotateY": 1200
-                        }
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "grab"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
-                        "resize": true
-                    },
-                    "modes": {
-                        "grab": {
-                            "distance": 140,
-                            "line_linked": {
-                                "opacity": 1
-                            }
-                        },
-                        "push": {
-                            "particles_nb": 4
-                        }
-                    }
-                },
-                "retina_detect": true
-            });
-        });
-    </script>
+    </div>
+</section>

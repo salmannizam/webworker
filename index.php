@@ -1,6 +1,6 @@
-<?php 
-$pageTitle = "Home - WebWorker"; 
-include 'components/header.php'; 
+<?php
+$pageTitle = "Home - WebWorker";
+include 'components/header.php';
 ?>
 <?php include 'components/hero.php'; ?>
 
@@ -10,8 +10,8 @@ include 'components/header.php';
   <section class="container text-center mb-5">
     <h2 class="fw-bold mb-3 text-gradient">Why Choose <span class="fw-bold">WebWorker</span>?</h2>
     <p class="fs-5 text-muted mx-auto" style="max-width: 800px;">
-      At WebWorker, we specialize in <strong>full-stack web development</strong> using 
-      <em>React, Next.js, Node.js, NestJS, MongoDB & SQL</em>.  
+      At WebWorker, we specialize in <strong>full-stack web development</strong> using
+      <em>React, Next.js, Node.js, NestJS, MongoDB & SQL</em>.
       Our solutions are built to be <strong>scalable, secure, SEO-friendly</strong>, and ready for the future.
     </p>
   </section>
@@ -61,7 +61,7 @@ include 'components/header.php';
     <div class="container">
       <h2 class="fw-bold mb-3">Grow Your Business with <span class="text-primary">WebWorker</span></h2>
       <p class="fs-5 opacity-75 mx-auto" style="max-width: 850px;">
-        We don’t just build websites — we build <strong>digital experiences</strong> that rank high in Google, 
+        We don’t just build websites — we build <strong>digital experiences</strong> that rank high in Google,
         load lightning fast, and give your business the competitive edge.
       </p>
       <a href="#contact" class="btn btn-primary btn-lg px-4 mt-3 shadow">Get a Free Consultation</a>

@@ -1,0 +1,48 @@
+:root {
+
+    --bs-primary: #4f46e5;
+    /* Indigo */
+    --bs-secondary: #64748b;
+    /* Slate Gray */
+    --bs-success: #22c55e;
+    /* Green */
+    --bs-danger: #ef4444;
+    /* Red */
+    --bs-warning: #f59e0b;
+    /* Amber */
+    --bs-info: #06b6d4;
+    /* Cyan */
+    --bs-light: #f8fafc;
+    /* Light */
+    --bs-dark: #0f172a;
+    /* Dark */
+}
+
+/* Optional: add your own custom theme colors */
+:root {
+    --bs-brand: #9333ea;
+    /* Purple Brand */
+    --bs-accent: #f43f5e;
+    /* Pink Accent */
+    --primary: #6366f1;
+    /* Indigo */
+    --secondary: #06b6d4;
+    /* Cyan */
+    --dark: #0f172a;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.5);
+}
+
+.btn-outline-light:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: #fff;
+}
